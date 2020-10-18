@@ -72,8 +72,16 @@ public class SignupUI extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		String s1 = new String(t2.getPassword());
 		String s2 = new String(t3.getPassword());
+                File currentDirFile = new File(".");
+                String helper = currentDirFile.getAbsolutePath();
+                String currentDir = "NUL";
+                try{
+                currentDir = helper.substring(0, helper.length() - currentDirFile.getCanonicalPath().length());
+                }catch(Exception ex){
+                    ex.printStackTrace();
+                }
 		if(s1.equals(s2) && !t1.getText().isEmpty() && !t4.getText().isEmpty()) {
-			String fileName = "D:/Tejas IT/rsume buider/"+ t1.getText().trim()+ ".txt";
+			String fileName = currentDir+ t1.getText().trim()+ ".txt";
 			try {
 				File f = new File(fileName);
 				FileWriter writer = new FileWriter(f);

@@ -116,25 +116,29 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-				String fileName = "D:/Tejas IT/rsume buider/"+ jTextField1.getText().trim()+ ".txt";
-				File f = new File(fileName);
-				Scanner s = new Scanner(f);
-				String pass = s.next();
-				s.close();
-				if(f.exists()) {
-					String password = new String(jPasswordField1.getPassword());
-					if(password.equals(pass)) {
-						new PersonalDet().setVisible(true);
-					}else {
-				
-					    JOptionPane.showMessageDialog(null,"Please provide a valid username and password.");
-					}
-				}
-			}catch(Exception w) {
-				System.out.println(w);
+            File currentDirFile = new File(".");
+            String helper = currentDirFile.getAbsolutePath();
+            String currentDir = "NUL";
+            currentDir = helper.substring(0, helper.length() - currentDirFile.getCanonicalPath().length());
+            String fileName = currentDir+ jTextField1.getText().trim()+ ".txt";
+            File f = new File(fileName);
+            Scanner s = new Scanner(f);
+            String pass = s.next();
+            s.close();
+            if(f.exists()) {
+                String password = new String(jPasswordField1.getPassword());
+                if(password.equals(pass)) {
+                    new PersonalDet().setVisible(true);
+                }else {
+
+                    JOptionPane.showMessageDialog(null,"Please provide a valid username and password.");
+                }
+            }
+	}catch(Exception w) {
+		System.out.println(w);
 				//JOptionPane optionPane = new JOptionPane(l3,JOptionPane.WARNING_MESSAGE);
-			    JOptionPane.showMessageDialog(null,"Please provide a valid username and password.");
-			}
+                JOptionPane.showMessageDialog(null,"Please provide a valid username and password.");
+	}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed

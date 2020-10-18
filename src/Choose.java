@@ -1,13 +1,6 @@
 
-import static com.sun.javafx.iio.common.ImageTools.scaleImage;
-import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import sun.awt.image.ImageAccessException;
 
 
 /*
